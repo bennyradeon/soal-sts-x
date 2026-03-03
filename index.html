@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Project Siswa - Kelas X</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 10px rgba(52,152,219,0.3);
+        }
+
+        .detail-box {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 8px solid #3498db;
+        }
+
+        .detail-box h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .detail-box ul, .detail-box ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-box li {
+            margin-bottom: 8px;
+        }
+
+        .detail-box .note {
+            background: #fef9e7;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 5px solid #f1c40f;
+            margin: 20px 0;
+        }
+
+        .detail-box .output-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 15px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            margin: 20px 0;
+        }
+
+        .project-images {
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .project-images h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;          /* mengikuti tinggi asli gambar */
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            padding: 20px;
+            background: white;
+        }
+
+        .image-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .image-caption p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 30px 0;
+            color: #777;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📚 Soal Project Siswa - Kelas X</h1>
+            <p>Sumatif Tengah Semester • ❗Absen dari 1-10  (tipe soal 1) ❗Absen dari 11-20  (tipe soal 2) ❗Absen dari 21-30  (tipe soal 3)❗ </ p>
+        </header>
+
+        <!-- Ringkasan 3 Tipe Soal -->
+        <section>
+            <h2 class="section-title">📋 Pilih Tipe Soal Project</h2>
+            <div class="card-grid">
+                <!-- Project 1: Aktivitas Cuaca -->
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <h3>1. Aplikasi Penentuan Aktivitas Berdasarkan Cuaca</h3>
+                    <p>Input suhu (°C) → rekomendasi: dingin (istirahat), sejuk (jalan), hangat (olahraga), panas (minum).</p>
+                    <span class="badge">if/else dasar</span>
+                </div>
+                <!-- Project 2: Kategori Umur -->
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3>2. Aplikasi Penentuan Kategori Usia</h3>
+                    <p>Input usia → kategori: Balita (0-4), Anak-anak (5-12), Remaja (13-17), Dewasa (18-59), Lansia (≥60).</p>
+                    <span class="badge">if/else rantai</span>
+                </div>
+                <!-- Project 3: Harga Tiket -->
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <h3>3. Aplikasi Penentuan Harga Tiket</h3>
+                    <p>Input usia → harga: Anak-anak (0-12) Rp10.000, Dewasa (13-59) Rp25.000, Lansia (≥60) Rp15.000.</p>
+                    <span class="badge">if/else & perhitungan</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail Lengkap Project 1 -->
+        <div class="detail-box">
+            <h3><i class="fas fa-info-circle" style="color: #3498db;"></i> Detail Project 1: Aplikasi Penentuan Aktivitas Berdasarkan Cuaca</h3>
+            <p><strong>Deskripsi:</strong> Aplikasi menentukan aktivitas berdasarkan suhu yang dimasukkan. Hanya menggunakan if/else.</p>
+            <p><strong>Kategori Suhu:</strong></p>
+            <ul>
+                <li>< 10°C : Istirahat di dalam rumah</li>
+                <li>10–20°C : Jalan-jalan di luar</li>
+                <li>21–30°C : Olahraga di luar</li>
+                <li>> 30°C : Minum banyak air & istirahat</li>
+            </ul>
+            <div class="note">
+                <strong>📝 Catatan:</strong> Karena sulit mengetik simbol derajat, cukup tulis <strong>"derajat"</strong> saat meminta input. Contoh: "Masukkan suhu cuaca saat ini (dalam derajat Celcius):"
+            </div>
+            <p><strong>Contoh Output Program:</strong></p>
+            <div class="output-example">
+Selamat datang di Aplikasi Penentuan Aktivitas Cuaca!
+Masukkan suhu cuaca saat ini (dalam derajat Celcius): 30
+Cuaca hangat, saat yang tepat untuk berolahraga di luar!
+Terima kasih telah menggunakan aplikasi ini!
+            </div>
+            <p><strong>Dokumentasi:</strong> Laporan, flowchart, kode (dengan komentar), contoh input/output.</p>
+            <p><strong>Batasan:</strong> Hanya if/else, tanpa fungsi/list. Input dalam Celcius.</p>
+        </div>
+
+        <!-- Gambar untuk Project 1 -->
+        <div class="project-images">
+            <h3>📷 Contoh Hasil Project 1</h3>
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="image11.png" alt="Screenshot output program cuaca">
+                    <div class="image-caption">
+                        <h4>Output Program Cuaca</h4>
+                        <p>Tampilan program penentuan aktivitas berdasarkan suhu.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="image12.png" alt="Flowchart program cuaca">
+                    <div class="image-caption">
+                        <h4>Output Program Cuaca</h4>
+                        <p>Contoh Tampilan ketika user memasukan inputan 34.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detail Lengkap Project 2 -->
+        <div class="detail-box">
+            <h3><i class="fas fa-info-circle" style="color: #3498db;"></i> Detail Project 2: Aplikasi Penentuan Kategori Usia</h3>
+            <p><strong>Deskripsi:</strong> Aplikasi menentukan kategori usia berdasarkan input tahun. Menggunakan if/else untuk memeriksa rentang.</p>
+            <p><strong>Kategori Usia:</strong></p>
+            <ul>
+                <li>Balita: 0 - 4 tahun</li>
+                <li>Anak-anak: 5 - 12 tahun</li>
+                <li>Remaja: 13 - 17 tahun</li>
+                <li>Dewasa: 18 - 59 tahun</li>
+                <li>Lansia: 60 tahun ke atas</li>
+            </ul>
+            <p><strong>Contoh Output Program:</strong></p>
+            <div class="output-example">
+Selamat datang di Aplikasi Penentuan Kategori Usia!
+Masukkan usia Anda: 2
+Kategori Usia: Balita
+Terima kasih telah menggunakan aplikasi ini!
+            </div>
+            <p><strong>Contoh Lain:</strong> Usia 10 → "Anak-anak", Usia 65 → "Lansia".</p>
+            <p><strong>Dokumentasi:</strong> Laporan, flowchart, kode (dengan komentar).</p>
+        </div>
+
+        <!-- Gambar untuk Project 2 -->
+        <div class="project-images">
+            <h3>📷 Contoh Hasil Project 2</h3>
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="image21.png" alt="Screenshot output program kategori usia">
+                    <div class="image-caption">
+                        <h4>Output Program Kategori Usia</h4>
+                        <p>Tampilan program penentuan kategori usia.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="image22.png" alt="Flowchart program kategori usia">
+                    <div class="image-caption">
+                        <h4>Flowchart Kategori Usia</h4>
+                        <p>Contoh Tampilan ketika user memasukan inputan 12.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detail Lengkap Project 3 -->
+        <div class="detail-box">
+            <h3><i class="fas fa-info-circle" style="color: #3498db;"></i> Detail Project 3: Aplikasi Penentuan Harga Tiket</h3>
+            <p><strong>Deskripsi:</strong> Aplikasi menghitung harga tiket berdasarkan usia pengguna. Harga berbeda tiap kategori.</p>
+            <p><strong>Kategori Harga:</strong></p>
+            <ul>
+                <li>Anak-anak (0-12 tahun): Rp 10.000</li>
+                <li>Dewasa (13-59 tahun): Rp 25.000</li>
+                <li>Lansia (60 tahun ke atas): Rp 15.000</li>
+            </ul>
+            <p><strong>Contoh Output Program:</strong></p>
+            <div class="output-example">
+Selamat datang di Aplikasi Penentuan Harga Tiket!
+Masukkan usia Anda: 34
+Harga tiket: Rp 25.000
+Terima kasih telah menggunakan aplikasi ini!
+            </div>
+            <p><strong>Contoh Lain:</strong> Usia 10 → Rp10.000, Usia 70 → Rp15.000.</p>
+            <p><strong>Dokumentasi:</strong> Laporan, flowchart, kode dengan penjelasan.</p>
+        </div>
+
+        <!-- Gambar untuk Project 3 -->
+        <div class="project-images">
+            <h3>📷 Contoh Hasil Project 3</h3>
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="image31.png" alt="Screenshot output program harga tiket">
+                    <div class="image-caption">
+                        <h4>Output Program Harga Tiket</h4>
+                        <p>Tampilan terminal saat menjalankan program penentuan harga tiket.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="image32.png" alt="Flowchart program harga tiket">
+                    <div class="image-caption">
+                        <h4>Flowchart Harga Tiket</h4>
+                        <p>Contoh Tampilan ketika user memasukan inputan </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kerangka Laporan (Format Word) -->
+        <section style="margin-top: 60px;">
+            <h2 class="section-title">📄 Kerangka Laporan (Format Msword,Gdocs/pdf)</h2>
+            <div class="detail-box" style="background: rgba(255,255,255,0.9);">
+                <p style="font-size: 1.1rem;">Setiap project harus disertai laporan dengan struktur berikut. Laporan diketik dalam format Microsoft Word,Google Dokumen atau Boleh Melalu Canva (.docx) dan dikumpulkan bersama file program. ❗Pengumpulan Laporan dan Code program dilakukan di google clasroom</p>
+                <ol style="margin: 20px 0 20px 30px; font-size: 1.1rem;">
+                    <li><strong>Halaman Judul</strong> (Nama, Kelas, Judul Project, Tanggal)</li>
+                    <li><strong>Laporan Pribadi</strong>: 
+                        <ul style="margin-left: 20px;">
+                            <li>Tujuan aplikasi yang dibuat.</li>
+                            <li>Proses pembuatan aplikasi (langkah-langkah yang dilakukan).</li>
+                            <li>Alasan memilih logika if/else dalam program.</li>
+                            <li>Fitur tambahan (jika ada) yang membuat aplikasi lebih menarik.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Flowchart</strong>: Diagram alir program (dapat digambar menggunakan draw.io, Lucidchart, atau aplikasi lainnya, lalu disisipkan sebagai gambar).</li>
+                    <li><strong>Dokumentasi Kode</strong>: Kode Python lengkap yang telah dibuat, disertai komentar penjelasan di setiap bagian (misalnya penjelasan tentang kondisi if/else).</li>
+                    <li><strong>Contoh Input dan Output</strong>: Minimal 2 contoh hasil running program (dapat berupa screenshot atau teks yang menunjukkan input dan output yang dihasilkan).</li>
+                </ol>
+                <div style="background: #e8f4fd; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <p><i class="fas fa-lightbulb" style="color: #f39c12;"></i> <strong>Tips:</strong> Gunakan fitur "Insert > Picture" di Word untuk menyisipkan flowchart. Untuk kode Python, bisa menggunakan format teks biasa atau menggunakan gaya kode dengan font monospace (misalnya Courier New).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer sederhana -->
+        <footer>
+            © 2026 - Project STS kelas X
+        </footer>
+    </div>
+</body>
+</html>
